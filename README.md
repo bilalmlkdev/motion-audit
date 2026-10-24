@@ -48,16 +48,12 @@ That matters because motion is covered by [WCAG 2.3.3](https://www.w3.org/WAI/WC
 ## Quick start
 
 ```bash
-npx motion-audit https://example.com
-```
-
-Before the package is on npm, run it straight from GitHub:
-
-```bash
 npx github:bilalmlkdev/motion-audit https://example.com
 ```
 
-It drives a Chromium browser you already have - Chrome, Chromium, Edge or Brave - so there is no 150 MB download. Set `CHROME_PATH` or pass `--chrome <path>` if auto-detection misses it.
+That is the whole install. npx caches the checkout, and the audit drives a Chromium browser you already have - Chrome, Chromium, Edge or Brave - so there is no 150 MB download. Set `CHROME_PATH` or pass `--chrome <path>` if auto-detection misses it.
+
+Once the package is published to npm, `npx motion-audit <url>` does the same thing with less typing.
 
 ## What it checks
 
@@ -94,8 +90,10 @@ A standalone file with the score, the counts and every offending element. No scr
 ## In CI
 
 ```bash
-npx motion-audit "$PREVIEW_URL" --fail-on ignored --quiet
+npx github:bilalmlkdev/motion-audit "$PREVIEW_URL" --fail-on ignored --quiet
 ```
+
+Swap the GitHub spec for `motion-audit` once the package is on npm.
 
 Exit codes: `0` clean or within threshold, `1` the verdict met `--fail-on`, `2` usage error or the page could not be audited. `--quiet` prints one tab-separated line.
 
