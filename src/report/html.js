@@ -43,7 +43,7 @@ function hostnameOf(url) {
 }
 
 function formatDuration(ms) {
-  if (!ms) return '—';
+  if (!ms) return '-';
   return ms >= 1000 ? `${(ms / 1000).toFixed(1)}s` : `${ms}ms`;
 }
 
@@ -65,7 +65,7 @@ export function renderHtml(result) {
 
   const rows = result.offenders
     .map(item => {
-      const share = item.rect && item.rect.share ? `${item.rect.share}%` : '—';
+      const share = item.rect && item.rect.share ? `${item.rect.share}%` : '-';
       const loops = item.infinite ? '<span class="pill pill-loop">∞ infinite</span>' : 'once';
       return `
         <tr>
@@ -246,7 +246,7 @@ export function renderHtml(result) {
 
   <p class="note">
     Motion that never stops is the usual culprit. Gate it behind
-    <code>@media (prefers-reduced-motion: no-preference)</code>, or provide a pause control —
+    <code>@media (prefers-reduced-motion: no-preference)</code>, or provide a pause control, per
     <a href="https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html" style="color: inherit">WCAG 2.3.3</a>.
   </p>
 

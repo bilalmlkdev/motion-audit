@@ -14,7 +14,7 @@ const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url),
 const SEVERITY = { none: 0, respected: 1, partial: 2, ignored: 3 };
 
 const HELP = `
-  motion-audit ${pkg.version} — does this page respect prefers-reduced-motion?
+  motion-audit ${pkg.version} - does this page respect prefers-reduced-motion?
 
   Usage
     motion-audit <url> [options]

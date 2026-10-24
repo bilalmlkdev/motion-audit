@@ -86,7 +86,7 @@ async function collectPass(browser, url, mode, options) {
 
     const stopped = await page.evaluate(stopObservation);
     if (!stopped) {
-      throw new Error('Observation state was lost — the page may have navigated during the audit.');
+      throw new Error('Observation state was lost - the page may have navigated during the audit.');
     }
 
     return mergeObservation(started, stopped);
@@ -140,13 +140,13 @@ export function summarise(passes, options = {}) {
 
   const warnings = [];
   if (!reduced.reducedMotionMatches) {
-    warnings.push('prefers-reduced-motion emulation did not report as active — results may be unreliable.');
+    warnings.push('prefers-reduced-motion emulation did not report as active - results may be unreliable.');
   }
   if (options.scroll === false) {
     warnings.push('Page was not scrolled, so scroll-triggered animations may be missing.');
   }
   if (baseline === 0 && still > 0) {
-    warnings.push('The motion-allowed pass saw no animations, so this comparison is weak — try a longer --window.');
+    warnings.push('The motion-allowed pass saw no animations, so this comparison is weak - try a longer --window.');
   }
 
   return {

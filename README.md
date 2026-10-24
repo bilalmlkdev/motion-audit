@@ -1,20 +1,20 @@
 # motion-audit
 
-**Find out whether a page respects `prefers-reduced-motion` — and exactly what keeps moving if it doesn't.**
+**Find out whether a page respects `prefers-reduced-motion`, and exactly what keeps moving if it doesn't.**
 
 [![license](https://img.shields.io/badge/license-MIT-111)](LICENSE)
 [![node](https://img.shields.io/badge/node-%E2%89%A518-111)](https://nodejs.org)
 
 ![motion-audit HTML report](docs/report.png)
 
-One command, two passes of the same page — once with motion allowed, once with the user's preference applied — then a score, a verdict, and the elements that ignore it.
+One command, two passes of the same page - once with motion allowed, once with the user's preference applied - then a score, a verdict, and the elements that ignore it.
 
 ```console
 $ npx motion-audit http://localhost:4173/fixtures/ignored.html
 
   motion-audit 0.1.0
   http://localhost:4173/fixtures/ignored.html
-  Ignored — animates regardless of preference
+  Ignored - animates regardless of preference
 
   ✖ ignores prefers-reduced-motion  20/100
 
@@ -41,7 +41,7 @@ $ npx motion-audit http://localhost:4173/fixtures/ignored.html
 
 Most accessibility checks stop at contrast, labels and alt text. Motion gets skipped because it is hard to measure: a stylesheet can declare a media query and still ignore it in JavaScript, and a single snapshot of "is it animating right now?" misses one-shot reveals entirely.
 
-`motion-audit` loads the page twice in a real Chromium browser and records **what actually moved** in each mode — CSS animations, transitions, Web Animations, smooth scrolling, autoplaying video and `<marquee>`. If motion happens with `prefers-reduced-motion: reduce` active, it lands in the report.
+`motion-audit` loads the page twice in a real Chromium browser and records **what actually moved** in each mode, including CSS animations, transitions, Web Animations, smooth scrolling, autoplaying video and `<marquee>`. If motion happens with `prefers-reduced-motion: reduce` active, it lands in the report.
 
 That matters because motion is covered by [WCAG 2.3.3](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html) and [2.2.2](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html), and the European Accessibility Act has applied to consumer-facing services since June 2025.
 
@@ -57,7 +57,7 @@ Before the package is on npm, run it straight from GitHub:
 npx github:bilalmlkdev/motion-audit https://example.com
 ```
 
-It drives a Chromium browser you already have — Chrome, Chromium, Edge or Brave — so there is no 150 MB download. Set `CHROME_PATH` or pass `--chrome <path>` if auto-detection misses it.
+It drives a Chromium browser you already have - Chrome, Chromium, Edge or Brave - so there is no 150 MB download. Set `CHROME_PATH` or pass `--chrome <path>` if auto-detection misses it.
 
 ## What it checks
 
@@ -89,7 +89,7 @@ The score starts at 100 and subtracts for the verdict, infinite loops, large-are
 npx motion-audit https://example.com --html report.html
 ```
 
-A standalone file with the score, the counts and every offending element — no scripts, no external assets, safe to attach to a ticket. That is what the screenshot at the top shows.
+A standalone file with the score, the counts and every offending element. No scripts, no external assets, safe to attach to a ticket. That is what the screenshot at the top shows.
 
 ## In CI
 

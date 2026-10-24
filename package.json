@@ -1,7 +1,7 @@
 {
   "name": "motion-audit",
   "version": "0.1.0",
-  "description": "Find out whether a page respects prefers-reduced-motion — and what keeps moving if it doesn't.",
+  "description": "Find out whether a page respects prefers-reduced-motion, and what keeps moving if it doesn't.",
   "type": "module",
   "bin": {
     "motion-audit": "bin/motion-audit.js"
