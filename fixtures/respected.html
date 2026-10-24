@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Respected — motion stops when asked</title>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; min-height: 100vh; background: #0b0b0f; display: grid; place-items: center; }
+  .orbit {
+    width: 70vmin; height: 70vmin; border-radius: 50%;
+    border: 2px dashed #35d07f;
+    animation: spin 4s linear infinite;
+  }
+  .pulse {
+    position: fixed; inset: 30% 30%; border-radius: 28px; background: #191b25;
+    animation: breathe 2s ease-in-out infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes breathe { 50% { transform: scale(1.15); opacity: 0.6; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .orbit, .pulse { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="orbit"></div>
+  <div class="pulse"></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+name: motion-audit
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  reduced-motion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Audit the preview deployment
+        run: npx --yes motion-audit "${{ vars.PREVIEW_URL }}" --fail-on ignored --html motion-report.html
+
+      - name: Upload the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: motion-audit-report
+          path: motion-report.html

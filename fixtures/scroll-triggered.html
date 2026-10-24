@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scroll-triggered — animates in regardless of preference</title>
+<style>
+  body { margin: 0; background: #0b0b0f; color: #e8ebf2; font-family: system-ui, sans-serif; }
+  .spacer { height: 130vh; display: grid; place-items: center; color: #4b5566; }
+  .reveal {
+    margin: 0 auto 60vh;
+    width: 60vmin; height: 40vmin; border-radius: 24px; background: #191b25;
+    border: 1px solid #2a2f3d;
+    opacity: 0;
+    transform: translateY(60px) scale(0.94);
+    transition: opacity 500ms ease, transform 500ms ease;
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+  <div class="spacer">scroll down</div>
+  <div class="reveal"></div>
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      }
+    });
+    observer.observe(document.querySelector('.reveal'));
+  </script>
+</body>
+</html>

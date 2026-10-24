@@ -1,0 +1,47 @@
+{
+  "name": "motion-audit",
+  "version": "0.1.0",
+  "description": "Find out whether a page respects prefers-reduced-motion — and what keeps moving if it doesn't.",
+  "type": "module",
+  "bin": {
+    "motion-audit": "bin/motion-audit.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node test/run.js"
+  },
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "prefers-reduced-motion",
+    "reduced-motion",
+    "animation",
+    "motion",
+    "wcag",
+    "audit",
+    "cli"
+  ],
+  "author": "bilalmlkdev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilalmlkdev/motion-audit.git"
+  },
+  "homepage": "https://github.com/bilalmlkdev/motion-audit#readme",
+  "bugs": {
+    "url": "https://github.com/bilalmlkdev/motion-audit/issues"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}

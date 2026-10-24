@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ignored — animates regardless of preference</title>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; min-height: 100vh; background: #0b0b0f; color: #e8ebf2;
+    font-family: system-ui, sans-serif; display: grid; place-items: center; gap: 3rem; padding: 4rem 0;
+  }
+  .orbit {
+    width: 55vmin; height: 55vmin; border-radius: 50%;
+    border: 2px dashed #ff5d73;
+    animation: spin 4s linear infinite;
+  }
+  .pulse {
+    width: 30vmin; height: 18vmin; border-radius: 28px; background: #191b25;
+    animation: breathe 2s ease-in-out infinite;
+  }
+  .float {
+    width: 24vmin; height: 24vmin; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #35d07f, #12351f);
+    animation: bob 3s ease-in-out infinite;
+  }
+  .badge {
+    padding: 0.6rem 1.2rem; border-radius: 999px; border: 1px solid #ffb020; color: #ffb020;
+    font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase;
+    animation: glow 1.6s ease-in-out infinite;
+  }
+  .gradient {
+    width: 70vmin; height: 30vmin; border-radius: 24px;
+    background: linear-gradient(120deg, #ff5d73, #ffb020, #35d07f, #4c8dff);
+    background-size: 300% 300%;
+    animation: shift 6s linear infinite;
+  }
+  marquee { width: 70vmin; color: #8b94a8; font-size: 0.9rem; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes breathe { 50% { transform: scale(1.15); opacity: 0.6; } }
+  @keyframes bob { 50% { transform: translateY(-24px); } }
+  @keyframes glow { 50% { box-shadow: 0 0 28px rgba(255, 176, 32, 0.5); } }
+  @keyframes shift { to { background-position: 300% 50%; } }
+</style>
+</head>
+<body>
+  <div class="orbit"></div>
+  <div class="pulse"></div>
+  <div class="float"></div>
+  <div class="badge">no reduced motion support</div>
+  <div class="gradient"></div>
+  <marquee>this element still moves too</marquee>
+</body>
+</html>

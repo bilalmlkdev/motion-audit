@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Partial — one animation is gated, one is not</title>
+<style>
+  body { margin: 0; min-height: 100vh; background: #0b0b0f; display: grid; place-items: center; gap: 4rem; }
+  .pulse {
+    width: 40vmin; height: 40vmin; border-radius: 28px; background: #191b25;
+    animation: breathe 2s ease-in-out infinite;
+  }
+  .drift {
+    width: 40vmin; height: 40vmin; border-radius: 50%; border: 2px solid #ffb020;
+    animation: spin 6s linear infinite;
+  }
+  @keyframes breathe { 50% { transform: scale(1.15); opacity: 0.6; } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="pulse"></div>
+  <div class="drift"></div>
+</body>
+</html>
