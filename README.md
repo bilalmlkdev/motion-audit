@@ -10,7 +10,7 @@
 One command, two passes of the same page - once with motion allowed, once with the user's preference applied - then a score, a verdict, and the elements that ignore it.
 
 ```console
-$ npx motion-audit http://localhost:4173/fixtures/ignored.html
+$ npx github:bilalmlkdev/motion-audit http://localhost:4173/fixtures/ignored.html
 
   motion-audit 0.1.0
   http://localhost:4173/fixtures/ignored.html
@@ -82,7 +82,7 @@ The score starts at 100 and subtracts for the verdict, infinite loops, large-are
 ## HTML report
 
 ```bash
-npx motion-audit https://example.com --html report.html
+npx github:bilalmlkdev/motion-audit https://example.com --html report.html
 ```
 
 A standalone file with the score, the counts and every offending element. No scripts, no external assets, safe to attach to a ticket. That is what the screenshot at the top shows.
@@ -144,7 +144,7 @@ The fixtures cover the four verdicts plus a scroll-triggered reveal: `ignored.ht
 
 ```bash
 python3 -m http.server 4173
-npx motion-audit http://localhost:4173/fixtures/ignored.html --html report.html
+node bin/motion-audit.js http://localhost:4173/fixtures/ignored.html --html report.html
 ```
 
 ## License
